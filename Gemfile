@@ -78,6 +78,10 @@ gem 'email_prefixer'
 
 gem 'puma'
 
+gem 'actionpack-page_caching'
+
+gem 'actionpack-action_caching'
+
 group :development do
 
   # mutes assets pipeline log messages

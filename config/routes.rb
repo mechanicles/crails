@@ -59,6 +59,7 @@ Crails::Application.routes.draw do
     end
   end
 
+  get 'home/index' => 'home#index'
 
   root 'home#index'
 end

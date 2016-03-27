@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  caches_page :about
 
   def index
     render
