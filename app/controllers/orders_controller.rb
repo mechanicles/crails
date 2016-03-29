@@ -6,7 +6,6 @@ class OrdersController < InheritedResources::Base
     super
   end
 
-
   def new
     @users = User.all
     @products = Product.all
