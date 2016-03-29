@@ -1,5 +1,7 @@
 Crails::Application.routes.draw do
 
+  resources :orders
+  resources :products
   devise_for :users, controllers: { registrations: 'registrations' }
 
   # Authentication

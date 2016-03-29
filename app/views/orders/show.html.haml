@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @order.user.name
+%p
+  %b Product:
+  = "#{@order.product.name} $#{@order.product.amount}"
+
+= link_to 'Edit', edit_order_path(@order)
+\|
+= link_to 'Back', orders_path

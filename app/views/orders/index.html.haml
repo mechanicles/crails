@@ -1,0 +1,46 @@
+%h1 Listing orders
+
+%table
+  %thead
+    %tr
+      %th{width: 150} User
+      %th{width: 150} Product
+      %th{width: 150} Product Amount
+      %th
+      %th
+
+  %tbody
+    - @orders.each do |order|
+      %tr
+        %td{width: 150}= order.user.name
+        %td{width: 150}= order.product.name
+        %td{width: 150}= order.product.amount
+        %td= link_to 'Show', order
+        %td= link_to 'Edit', edit_order_path(order)
+        %td= link_to 'Destroy', order, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Order', new_order_path
+
+%hr
+%h2 Product List
+
+%table
+  %thead
+    %tr
+      %th{width: 150} Product Name
+      %th{width: 150} Product Amount
+      %th
+      %th
+
+  %tbody
+    - cache do
+      - @products.each do |product|
+        %tr
+          %td{width: 150}= product.name
+          %td{width: 150}= product.name
+          %td= link_to 'Show', product
+          %td= link_to 'Edit', edit_order_path(product)
+          %td= link_to 'Destroy', product, :method => :delete, :data => { :confirm => 'Are you sure?' }
+%br

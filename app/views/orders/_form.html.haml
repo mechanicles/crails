@@ -1,0 +1,16 @@
+= form_for @order do |f|
+  - if @order.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
+      %ul
+        - @order.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :user
+    = f.select :user_id, @users.map { |u| [u.name, u.id] }
+  .field
+    = f.label :product
+    = f.select :product_id, @products.map { |p| [p.name, p.id] }
+  .actions
+    = f.submit 'Save'
