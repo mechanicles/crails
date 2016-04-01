@@ -35,32 +35,12 @@
       %th
 
   %tbody
-    - cache(cache_key_for_products, skip_digest: true) do
-      - @products.each do |product|
+    - @products.each do |product|
+      - cache(product, skip_digest: true) do
         %tr
           %td{width: 150}= product.name
-          %td{width: 150}= product.name
+          %td{width: 150}= product.amount
           %td= link_to 'Show', product
           %td= link_to 'Edit', edit_product_path(product)
           %td= link_to 'Destroy', product, :method => :delete, :data => { :confirm => 'Are you sure?' }
 %br
-
-%hr
-%h2 Product List
-
-%table
-  %thead
-    %tr
-      %th{width: 150} Product Name
-      %th{width: 150} Product Amount
-      %th
-      %th
-
-  %tbody
-    - @products.each do |product|
-      %tr
-        %td{width: 150}= product.name
-        %td{width: 150}= product.name
-        %td= link_to 'Show', product
-        %td= link_to 'Edit', edit_product_path(product)
-        %td= link_to 'Destroy', product, :method => :delete, :data => { :confirm => 'Are you sure?' }
