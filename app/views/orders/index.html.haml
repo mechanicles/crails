@@ -35,13 +35,13 @@
       %th
 
   %tbody
-    - cache do
+    - cache({action: 'index', action_suffix: 'all_products'}, skip_digest: true) do
       - @products.each do |product|
         %tr
           %td{width: 150}= product.name
           %td{width: 150}= product.name
           %td= link_to 'Show', product
-          %td= link_to 'Edit', edit_order_path(product)
+          %td= link_to 'Edit', edit_product_path(product)
           %td= link_to 'Destroy', product, :method => :delete, :data => { :confirm => 'Are you sure?' }
 %br
 
@@ -62,7 +62,26 @@
         %td{width: 150}= product.name
         %td{width: 150}= product.name
         %td= link_to 'Show', product
-        %td= link_to 'Edit', edit_order_path(product)
+        %td= link_to 'Edit', edit_product_path(product)
         %td= link_to 'Destroy', product, :method => :delete, :data => { :confirm => 'Are you sure?' }
 %br
+%hr
 
+%h2 User List with caching
+
+%table
+  %thead
+    %tr
+      %th{width: 150} User's name
+      %th{width: 150} User's email
+      %th
+      %th
+
+  %tbody
+    - cache({action: 'index', action_suffix: 'all_users'}, skip_digest: true) do
+      - @users.each do |user|
+        %tr
+          %td{width: 150}= user.name
+          %td{width: 150}= user.email
+%br
+%hr
